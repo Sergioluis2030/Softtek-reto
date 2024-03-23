@@ -1,13 +1,13 @@
-service: my-test-segundo
+service: my-function-swapi
 
 provider:
   name: aws
   runtime: nodejs18.x
 
 functions:
-  hello:
-    handler: src/handler.hello
+  swapi:
+    handler: src/handler.swapi
     events:
       - http:
-          path: hello
+          path: swapi
           method: get
