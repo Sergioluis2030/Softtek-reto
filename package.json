@@ -7,5 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sergio",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/translate": "^8.1.0",
+    "aws-sdk": "^2.1584.0",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5"
+  }
 }

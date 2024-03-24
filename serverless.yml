@@ -4,10 +4,37 @@ provider:
   name: aws
   runtime: nodejs18.x
 
+package:
+  include:
+    - gcp-credentials.json
+
+resources:
+  Resources:
+    TaskTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: swapi_people
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+
 functions:
-  swapi:
-    handler: src/handler.swapi
+  swapi_get:
+    handler: src/controller/swapi_get.swapi
     events:
       - http:
           path: swapi
           method: get
+          resources:
+
+  swapi_save:
+    handler: src/controller/swapi_save.swapi
+    events:
+      - http:
+          path: swapi
+          method: post
+          resources:
