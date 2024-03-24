@@ -7,7 +7,6 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient({
 });    
 
 const obtenerRegistro = async (clavePrimaria) => {
-  console.log(process.env.AWS_REGION_SERGIO, " <<< region")
     const params = {
       TableName: 'swapi_people',
       Key: {
